@@ -6,7 +6,7 @@
     <title>Hlášení závady košů - Obec Běloky</title>
     <meta
       name="description"
-      content="Jednoduche hlaseni zavady kosu pres QR kod."
+      content="Jednoduché hlášení závady košů přes QR kód."
     />
     <style>
       :root {
@@ -220,7 +220,7 @@
           <div class="logo">
             <img
               src="https://www.obec-beloky.cz/skins/beloky_lego2/images/logo.svg"
-              alt="Logo obce Beloky"
+              alt="Logo obce Běloky"
               loading="lazy"
             />
           </div>
@@ -239,7 +239,7 @@
         <h1>Dejte obci Běloky vědět, že je koš potřeba zkontrolovat.</h1>
         <p>
           Tento formulář patří obci Běloky a je propojen s konkrétním košem přes
-          QR kód. Vyplňte prosím krátký popis závady a kontaktní email pro případ
+          QR kód. Vyplňte prosím krátký popis závady a kontaktní e-mail pro případ
           doplnění informací.
         </p>
         <div class="bin-id" id="binLabel">Koš: neznámý</div>
@@ -255,6 +255,7 @@
           id="issueForm"
           action="https://formspree.io/f/your-form-id"
           method="POST"
+          enctype="multipart/form-data"
         >
           <input type="hidden" id="binField" name="bin_id" value="" />
 
@@ -269,7 +270,7 @@
           </div>
 
           <div>
-            <label for="email">Kontaktní email</label>
+            <label for="email">Kontaktní e-mail</label>
             <input
               id="email"
               name="email"
@@ -278,7 +279,20 @@
               required
             />
             <div class="hint">
-              Email použijeme jen pro případ doplnění informací.
+              E-mail použijeme jen pro případ doplnění informací.
+            </div>
+          </div>
+
+          <div>
+            <label for="photo">Fotografie (volitelné)</label>
+            <input
+              id="photo"
+              name="photo"
+              type="file"
+              accept="image/*"
+            />
+            <div class="hint">
+              Pokud můžete, přiložte fotku závady. Pomůže nám rychleji zasáhnout.
             </div>
           </div>
 
