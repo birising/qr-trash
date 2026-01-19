@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hlaseni zavady kosu - Obec Beloky</title>
+    <title>Hlášení závady košů - Obec Běloky</title>
     <meta
       name="description"
       content="Jednoduche hlaseni zavady kosu pres QR kod."
@@ -68,16 +68,21 @@
       }
 
       .logo {
-        width: 44px;
-        height: 44px;
+        width: 56px;
+        height: 56px;
         border-radius: 14px;
-        background: linear-gradient(135deg, #93c5fd, #2563eb);
+        background: #ffffff;
+        border: 1px solid var(--border);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        color: #ffffff;
-        font-weight: 700;
-        letter-spacing: 0.04em;
+        overflow: hidden;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
 
       .brand h2 {
@@ -212,7 +217,13 @@
     <main class="page">
       <section class="intro">
         <div class="brand">
-          <div class="logo">OB</div>
+          <div class="logo">
+            <img
+              src="https://www.obec-beloky.cz/skins/beloky_lego2/images/logo.svg"
+              alt="Logo obce Beloky"
+              loading="lazy"
+            />
+          </div>
           <div>
             <h2>Obec Běloky</h2>
             <a
@@ -224,23 +235,19 @@
             </a>
           </div>
         </div>
-        <span class="badge">Hlaseni zavady</span>
-        <h1>Dejte obci Beloky vedet, ze je kos potreba zkontrolovat.</h1>
+        <span class="badge">Hlášení závady</span>
+        <h1>Dejte obci Běloky vědět, že je koš potřeba zkontrolovat.</h1>
         <p>
-          Tento formular patri obci Beloky a je propojen s konkretnim kosem pres
-          QR kod. Vyplnte prosim kratky popis zavady a kontaktni email pro pripad
-          doplneni informaci.
+          Tento formulář patří obci Běloky a je propojen s konkrétním košem přes
+          QR kód. Vyplňte prosím krátký popis závady a kontaktní email pro případ
+          doplnění informací.
         </p>
-        <div class="bin-id" id="binLabel">Kos: neznamy</div>
+        <div class="bin-id" id="binLabel">Koš: neznámý</div>
         <div class="contact">
           <div><strong>Kontakt:</strong> oubeloky@seznam.cz</div>
           <div><strong>Kancelář:</strong> oubelokykancelar@seznam.cz</div>
           <div><strong>Telefon:</strong> +420 725 835 311</div>
         </div>
-        <p class="footer">
-          Tip: QR kod by mel smerovat na adresu ve tvaru
-          <strong>.../index.html?bin=KOS-123</strong>.
-        </p>
       </section>
 
       <section class="card">
@@ -252,17 +259,17 @@
           <input type="hidden" id="binField" name="bin_id" value="" />
 
           <div>
-            <label for="issue">Popis zavady</label>
+            <label for="issue">Popis závady</label>
             <textarea
               id="issue"
               name="issue"
-              placeholder="Napiste, co se stalo (napr. poskozeny viko, kos je plny, uvolnene uchyceni)."
+              placeholder="Napište, co se stalo (např. poškozené víko, koš je plný, uvolněné uchycení)."
               required
             ></textarea>
           </div>
 
           <div>
-            <label for="email">Kontaktni email</label>
+            <label for="email">Kontaktní email</label>
             <input
               id="email"
               name="email"
@@ -271,13 +278,13 @@
               required
             />
             <div class="hint">
-              Email pouzijeme jen pro pripad doplneni informaci.
+              Email použijeme jen pro případ doplnění informací.
             </div>
           </div>
 
-          <button type="submit">Odeslat hlaseni</button>
+          <button type="submit">Odeslat hlášení</button>
           <div class="footer">
-            Odeslanim souhlasite se zpracovanim udaju pro ucel reseni zavady.
+            Odesláním souhlasíte se zpracováním údajů pro účel řešení závady.
           </div>
         </form>
       </section>
@@ -286,12 +293,12 @@
     <script>
       (function () {
         var params = new URLSearchParams(window.location.search);
-        var binId = params.get("bin") || params.get("kos") || "neznamy";
+        var binId = params.get("bin") || params.get("kos") || "neznámý";
         var label = document.getElementById("binLabel");
         var field = document.getElementById("binField");
 
         if (label) {
-          label.textContent = "Kos: " + binId;
+          label.textContent = "Koš: " + binId;
         }
         if (field) {
           field.value = binId;
