@@ -61,6 +61,36 @@
         box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
       }
 
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #93c5fd, #2563eb);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .brand h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .brand a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+      }
+
       .badge {
         display: inline-flex;
         align-items: center;
@@ -154,6 +184,18 @@
         color: var(--muted);
       }
 
+      .contact {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        font-size: 14px;
+        color: var(--text);
+        display: grid;
+        gap: 6px;
+      }
+
       @media (max-width: 640px) {
         body {
           padding: 20px 12px;
@@ -169,6 +211,19 @@
   <body>
     <main class="page">
       <section class="intro">
+        <div class="brand">
+          <div class="logo">OB</div>
+          <div>
+            <h2>Obec Běloky</h2>
+            <a
+              href="https://www.obec-beloky.cz"
+              target="_blank"
+              rel="noopener"
+            >
+              www.obec-beloky.cz
+            </a>
+          </div>
+        </div>
         <span class="badge">Hlaseni zavady</span>
         <h1>Dejte obci Beloky vedet, ze je kos potreba zkontrolovat.</h1>
         <p>
@@ -177,6 +232,11 @@
           doplneni informaci.
         </p>
         <div class="bin-id" id="binLabel">Kos: neznamy</div>
+        <div class="contact">
+          <div><strong>Kontakt:</strong> oubeloky@seznam.cz</div>
+          <div><strong>Kancelář:</strong> oubelokykancelar@seznam.cz</div>
+          <div><strong>Telefon:</strong> +420 725 835 311</div>
+        </div>
         <p class="footer">
           Tip: QR kod by mel smerovat na adresu ve tvaru
           <strong>.../index.html?bin=KOS-123</strong>.
