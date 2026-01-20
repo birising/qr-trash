@@ -53,7 +53,8 @@
       }
 
       .intro,
-      .card {
+      .card,
+      .hero {
         background: var(--card);
         border-radius: 20px;
         border: 1px solid var(--border);
@@ -201,20 +202,46 @@
         gap: 6px;
       }
 
+      .hero {
+        grid-column: 1 / -1;
+      }
+
       @media (max-width: 640px) {
         body {
           padding: 20px 12px;
         }
 
         .intro,
-        .card {
+        .card,
+        .hero {
           padding: 22px;
+        }
+
+        .hero {
+          order: 0;
+        }
+
+        .card {
+          order: 1;
+        }
+
+        .intro {
+          order: 2;
         }
       }
     </style>
   </head>
   <body>
     <main class="page">
+      <section class="hero">
+        <span class="badge">Hlášení závady</span>
+        <h1>Dejte obci Běloky vědět, že je koš potřeba zkontrolovat.</h1>
+        <p>
+          Nahlaste prosím závadu přes tento formulář. Zabere to jen chvilku a
+          pomůže nám rychleji zasáhnout.
+        </p>
+      </section>
+
       <section class="intro">
         <div class="brand">
           <div class="logo">
@@ -231,8 +258,6 @@
             </a>
           </div>
         </div>
-        <span class="badge">Hlášení závady</span>
-        <h1>Dejte obci Běloky vědět, že je koš potřeba zkontrolovat.</h1>
         <p>
           Tento formulář patří obci Běloky a je propojen s konkrétním košem přes
           QR kód. Vyplňte prosím krátký popis závady a kontaktní e-mail pro případ
